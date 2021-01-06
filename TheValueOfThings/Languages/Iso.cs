@@ -1,11 +1,17 @@
-﻿namespace TheValueOfThings.Languages
+﻿using System;
+
+namespace TheValueOfThings.Languages
 {
     public class Iso
     {
         public string Value { get; }
-        public Iso(string value)
+        public Iso(string iso)
         {
-            Value = value;
+            if(string.IsNullOrWhiteSpace(iso))
+            {
+                throw new ArgumentException(iso);
+            }
+            Value = iso;
         }
     }
 }
