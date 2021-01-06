@@ -1,8 +1,8 @@
 ﻿using System;
-using TheValueOfThings.Languages;
+using TheValueOfThings.Domain.Languages;
 using Xunit;
 
-namespace TheValueOfThings.Test.Languages
+namespace TheValueOfThings.Test.Domain.Languages
 {
     public class IsoShould
     {

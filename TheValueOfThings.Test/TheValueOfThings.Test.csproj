@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -20,7 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TheValueOfThings\TheValueOfThings.csproj" />
+    <ProjectReference Include="..\TheValueOfThings.Application\TheValueOfThings.Application.csproj" />
+    <ProjectReference Include="..\TheValueOfThings.Domain\TheValueOfThings.Domain.csproj" />
   </ItemGroup>
 
 </Project>
