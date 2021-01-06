@@ -1,5 +1,7 @@
-﻿using TheValueOfThings.Application.Languages;
+﻿using System.Collections.Generic;
+using TheValueOfThings.Application.Languages;
 using TheValueOfThings.Domain.Languages;
+using TheValueOfThings.Test.Languages;
 using Xunit;
 
 namespace TheValueOfThings.Test.Application.Languages
@@ -17,8 +19,12 @@ namespace TheValueOfThings.Test.Application.Languages
         public void LetWordUnchangedWhenIsSameIso()
         {
             var expected = "Hello";
-            var original = new OrigionalIso("en");
-            var translation = new TranslationIso("en");
+            var englishIso = "en";
+            var isoService = new IsoServiceBuilder().
+                WithValidLanguage(new List<string> { englishIso })
+                .Build();
+            var original = OrigionalIso.CreateOrigionalIso(englishIso, isoService);
+            var translation = TranslationIso.CreateTranslationIso(englishIso, isoService);
             var actual = sut.Translate(original, translation, expected);
             Assert.Equal(expected, actual);
         }

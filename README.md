@@ -17,7 +17,16 @@ ensuring that it will never be null.
 
 A second characteristic of value objects is that you must be able to compare with no effort.
 
-It also segregates concerns, so if you have different objects playing different roles, you could use value objects.
+It also segregates concerns.
+
+For instance, to keep your iso always in a valid state, we want to make sure that we have translations for it. In order to meet
+this constraint we must use a service, but this service is not your typical application service because it uses parts of our domain.
+To alleviate our dependencies, we can create a private constructor for our iso and use a factory method that requires a domain service. The latter 
+checks if the current iso is among the ones that we have translations for.
+
+## Roles
+
+When different objects playing different roles, you could use value objects.
 For instance, take the traditional translate method signature
 
 `string Translate(string iso, string otherIso, string word)`

@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Languages\" />
+    <ProjectReference Include="..\TheValueOfThings.Domain\TheValueOfThings.Domain.csproj" />
   </ItemGroup>
 
 </Project>

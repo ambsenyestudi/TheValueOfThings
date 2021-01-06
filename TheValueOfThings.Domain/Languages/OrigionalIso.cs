@@ -4,12 +4,17 @@ namespace TheValueOfThings.Domain.Languages
 {
     public class OrigionalIso : Iso
     {
-        public OrigionalIso(string iso) : base(iso)
+        private OrigionalIso(string iso) : base(iso)
         {
-            if (string.IsNullOrWhiteSpace(iso))
+        }
+
+        public static OrigionalIso CreateOrigionalIso(string iso, IIsoService isoService)
+        {
+            if (!isoService.IsValidIso(iso))
             {
-                throw new ArgumentException("Iso can not be empty");
+                throw new ArgumentException(INVALID_ISO_ERROR);
             }
+            return new OrigionalIso(iso);
         }
     }
 }
