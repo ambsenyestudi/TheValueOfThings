@@ -13,5 +13,20 @@ namespace TheValueOfThings.Languages
             }
             Value = iso;
         }
+
+        public override int GetHashCode()
+        {
+            return Value.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            var other = obj as Iso;
+            if(other == null)
+            {
+                return false;
+            }
+            return Value == other.Value;
+        }
     }
 }
